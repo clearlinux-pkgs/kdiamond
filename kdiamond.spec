@@ -6,7 +6,7 @@
 #
 Name     : kdiamond
 Version  : 18.08.0
-Release  : 3
+Release  : 4
 URL      : https://download.kde.org/stable/applications/18.08.0/src/kdiamond-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/kdiamond-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/kdiamond-18.08.0.tar.xz.sig
