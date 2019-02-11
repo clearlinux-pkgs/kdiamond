@@ -5,23 +5,23 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdiamond
-Version  : 18.08.0
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kdiamond-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kdiamond-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kdiamond-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 6
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kdiamond-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kdiamond-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kdiamond-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
-Requires: kdiamond-bin
-Requires: kdiamond-data
-Requires: kdiamond-license
-Requires: kdiamond-locales
+Requires: kdiamond-bin = %{version}-%{release}
+Requires: kdiamond-data = %{version}-%{release}
+Requires: kdiamond-license = %{version}-%{release}
+Requires: kdiamond-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : knotifyconfig-dev
 BuildRequires : libkdegames-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -29,8 +29,8 @@ No detailed description available
 %package bin
 Summary: bin components for the kdiamond package.
 Group: Binaries
-Requires: kdiamond-data
-Requires: kdiamond-license
+Requires: kdiamond-data = %{version}-%{release}
+Requires: kdiamond-license = %{version}-%{release}
 
 %description bin
 bin components for the kdiamond package.
@@ -69,26 +69,26 @@ locales components for the kdiamond package.
 
 
 %prep
-%setup -q -n kdiamond-18.08.0
+%setup -q -n kdiamond-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535428409
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549866042
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535428409
+export SOURCE_DATE_EPOCH=1549866042
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kdiamond
-cp COPYING %{buildroot}/usr/share/doc/kdiamond/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kdiamond/COPYING.DOC
+mkdir -p %{buildroot}/usr/share/package-licenses/kdiamond
+cp COPYING %{buildroot}/usr/share/package-licenses/kdiamond/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kdiamond/COPYING.DOC
 pushd clr-build
 %make_install
 popd
@@ -122,6 +122,7 @@ popd
 /usr/share/kdiamond/themes/funny_zoo.svgz
 /usr/share/knotifications5/kdiamond.notifyrc
 /usr/share/kxmlgui5/kdiamond/kdiamondui.rc
+/usr/share/metainfo/org.kde.kdiamond.appdata.xml
 /usr/share/sounds/KDiamond-Stone-Drop.ogg
 /usr/share/sounds/KDiamond-Stone-Swap.ogg
 /usr/share/sounds/KDiamond-Stone-Touch.ogg
@@ -159,9 +160,9 @@ popd
 /usr/share/doc/HTML/uk/kdiamond/index.docbook
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kdiamond/COPYING
-/usr/share/doc/kdiamond/COPYING.DOC
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kdiamond/COPYING
+/usr/share/package-licenses/kdiamond/COPYING.DOC
 
 %files locales -f kdiamond.lang
 %defattr(-,root,root,-)
