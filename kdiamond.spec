@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdiamond
-Version  : 20.08.3
-Release  : 29
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/kdiamond-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/kdiamond-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/kdiamond-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 30
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/kdiamond-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/kdiamond-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/kdiamond-20.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -70,15 +70,15 @@ locales components for the kdiamond package.
 
 
 %prep
-%setup -q -n kdiamond-20.08.3
-cd %{_builddir}/kdiamond-20.08.3
+%setup -q -n kdiamond-20.12.0
+cd %{_builddir}/kdiamond-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604601727
+export SOURCE_DATE_EPOCH=1607715793
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,11 +94,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604601727
+export SOURCE_DATE_EPOCH=1607715793
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdiamond
-cp %{_builddir}/kdiamond-20.08.3/COPYING %{buildroot}/usr/share/package-licenses/kdiamond/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kdiamond-20.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kdiamond/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kdiamond-20.12.0/COPYING %{buildroot}/usr/share/package-licenses/kdiamond/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kdiamond-20.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kdiamond/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -131,12 +131,12 @@ popd
 /usr/share/kdiamond/themes/funny_zoo.png
 /usr/share/kdiamond/themes/funny_zoo.svgz
 /usr/share/knotifications5/kdiamond.notifyrc
+/usr/share/knsrcfiles/kdiamond.knsrc
 /usr/share/kxmlgui5/kdiamond/kdiamondui.rc
 /usr/share/metainfo/org.kde.kdiamond.appdata.xml
 /usr/share/sounds/KDiamond-Stone-Drop.ogg
 /usr/share/sounds/KDiamond-Stone-Swap.ogg
 /usr/share/sounds/KDiamond-Stone-Touch.ogg
-/usr/share/xdg/kdiamond.knsrc
 
 %files doc
 %defattr(0644,root,root,0755)
